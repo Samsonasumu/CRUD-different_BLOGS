@@ -1,0 +1,38 @@
+{% block sidebar %}
+
+<style>
+        .card{
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+        .sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: red;
+			font-size: 25px;
+			color: #818181;
+			display:block;
+            flex-direction: column;
+            align-items: center;
+		}
+        .sidenav a:hover{
+			color:#f1f1f1;
+		}	
+        
+</style>
+
+
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4 float-right ">
+<div class="card my-4">
+        <h5 class="card-header">Contact Me</h5>
+        <div class="sidenav">
+            <a href="https://www.linkedin.com/in/samson-asumu-335687174/"> <img src="data:image/png;base64,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" alt=""> github</a>
+            <a href="https://github.com/Samsonasumu"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFnr546p4FsQVd1Ljd0Ug5aM3EMi4vv9pYwvxHEqAEYQ&s" alt=""></a>
+            <a href="#"><img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt=""> email</a>
+        </div>
+</div>
+</div>
+
+{% endblock sidebar %}
+
+
+
