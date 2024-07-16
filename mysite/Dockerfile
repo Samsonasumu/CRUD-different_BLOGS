@@ -1,24 +1,20 @@
-# Use an official Python image as a base
-FROM python:3.9-slim-buster
+ # Use an official Python runtime as a parent image
+FROM python:3.9
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file into the app directory
-COPY requirements.txt ./
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Install dependencies
-RUN pip install  -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
-COPY . .
-
-# Set the environment variables (optional)
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
-
-# Expose the port your Django app will run on
+# Make port 8000 available to the world outside this container
 EXPOSE 8000
 
-# Command to run the Django app
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
